@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #10b981; /* Emerald 500 */
+  --color-primary-dark: #059669; /* Emerald 600 */
+  --color-background: #f8fafc; /* Slate 50 */
+  --color-surface: #ffffff;
+  --color-text: #1e293b; /* Slate 800 */
+  --color-text-light: #64748b; /* Slate 500 */
+  --color-border: #e2e8f0; /* Slate 200 */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  
+  /* Seal Colors */
+  --color-platina: #10b981;
+  --color-ouro: #fbbf24;
+  --color-prata: #94a3b8;
+  --color-bronze: #d97706;
+}
+
+/* High Contrast Theme Overrides */
+.high-contrast {
+  --color-primary: #ffff00;
+  --color-primary-dark: #ffff00;
+  --color-background: #000000;
+  --color-surface: #000000;
+  --color-text: #ffffff;
+  --color-text-light: #ffff00;
+  --color-border: #ffffff;
+  --color-success: #00ff00;
+  --color-warning: #ff8c00;
+  --color-error: #ff0000;
+
+  --color-platina: #00ff00;
+  --color-ouro: #ffff00;
+  --color-prata: #ffffff;
+  --color-bronze: #ff8c00;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Base focus styles for accessibility */
+*:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.high-contrast *:focus-visible {
+  outline: 4px solid #ffff00;
+}
