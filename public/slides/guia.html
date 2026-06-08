@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Roteiro de Bolso - IHC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            background-color: #0A0A0A; 
+            color: #E5E7EB; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            padding-bottom: 60px; 
+            -webkit-font-smoothing: antialiased;
+        }
+        .card { 
+            background-color: #1A1A1A; 
+            border-radius: 16px; 
+            padding: 24px; 
+            margin-bottom: 24px; 
+            border-left: 6px solid #FFD700; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .card-2 { border-left-color: #3B82F6; }
+        .card-3 { border-left-color: #10B981; }
+        .card-4 { border-left-color: #8B5CF6; }
+        .card-5 { border-left-color: #EF4444; }
+        
+        h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; text-align: center; color: #FFFFFF; padding-top: 24px;}
+        h2 { font-size: 22px; font-weight: 800; color: #FFFFFF; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;}
+        h3 { font-size: 18px; font-weight: 700; color: #9CA3AF; margin-top: 24px; margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 8px;}
+        
+        ul { list-style: none; padding: 0; }
+        li { font-size: 20px; line-height: 1.5; margin-bottom: 16px; position: relative; padding-left: 24px; color: #D1D5DB; }
+        li::before { content: "👉"; position: absolute; left: 0; font-size: 16px; top: 4px; }
+        
+        .badge { display: inline-block; padding: 4px 12px; background: #333; border-radius: 20px; font-size: 14px; font-weight: bold; margin-bottom: 24px; text-align: center; width: 100%;}
+    </style>
+</head>
+<body>
+    <div class="max-w-md mx-auto p-5">
+        <h1>📱 Roteiro de Bolso</h1>
+        <div class="badge">Uso exclusivo no celular 📵</div>
+
+        <!-- PESSOA 1 -->
+        <div class="card">
+            <h2>🗣️ Pessoa 1</h2>
+            
+            <h3>Slide 1: Capa</h3>
+            <ul>
+                <li>Cumprimente os professores e a turma.</li>
+                <li>Apresente rapidamente o nome do projeto (Turismo com Acessibilidade) e a proposta da disciplina de IHC.</li>
+            </ul>
+
+            <h3>Slide 2: Introdução</h3>
+            <ul>
+                <li>Explique o problema: portais de turismo não falam sobre estrutura, causando barreiras inesperadas.</li>
+                <li>Apresente a solução: o aplicativo colaborativo focado em catalogar medidas reais.</li>
+            </ul>
+        </div>
+
+        <!-- PESSOA 2 -->
+        <div class="card card-2">
+            <h2>🗣️ Pessoa 2</h2>
+            
+            <h3>Slide 3: Personas</h3>
+            <ul>
+                <li>Conte a história do Carlos Alberto (cadeirante) e como o app muda a vida dele antes de sair de casa.</li>
+                <li>Passe rápido pelos perfis de IHC (Carlos, Maria, Yuri e Beatriz).</li>
+            </ul>
+
+            <h3>Slide 4: ABNT NBR 9050</h3>
+            <ul>
+                <li>Explique o que se cadastra no app: Portas (mín. 0,80m), Rampas (cálculo de inclinação) e Piso Tátil.</li>
+                <li>Mostre que o app tem base real nas leis brasileiras.</li>
+            </ul>
+        </div>
+
+        <!-- PESSOA 3 -->
+        <div class="card card-3">
+            <h2>🗣️ Pessoa 3</h2>
+            
+            <h3>Slide 5: Algoritmo e Selos</h3>
+            <ul>
+                <li>Mostre a matriz matemática: como os pesos (Rampa 30%, Sanitários 20%) geram a nota final.</li>
+                <li>Apresente a gamificação das medalhas (Platina, Ouro, Prata, Bronze).</li>
+            </ul>
+
+            <h3>Slide 6: Fluxos de Tarefa</h3>
+            <ul>
+                <li>Fale sobre o "Happy Path" (Caminho Feliz) de avaliar um lugar.</li>
+                <li>Cite os erros previstos em IHC: salvamento offline e o bloqueio se alguém digitar uma porta de 10 metros.</li>
+            </ul>
+        </div>
+
+        <!-- PESSOA 4 -->
+        <div class="card card-4">
+            <h2>🗣️ Pessoa 4</h2>
+            
+            <h3>Slide 7: Telas e Design</h3>
+            <ul>
+                <li>Foque nas Telas!</li>
+                <li><strong>Tela 1:</strong> Mapa e alvos de toque grandes.</li>
+                <li><strong>Tela 2:</strong> Ficha do local com checklists físicos (aprovado/pendente).</li>
+                <li><strong>Tela 3:</strong> O formulário passo a passo de avaliação.</li>
+            </ul>
+        </div>
+
+        <!-- PESSOA 5 -->
+        <div class="card card-5">
+            <h2>🗣️ Pessoa 5</h2>
+            
+            <h3>Slide 8: Avaliação Heurística</h3>
+            <ul>
+                <li>Explique as Heurísticas de forma simples aplicadas pra "uso na rua".</li>
+                <li><strong>H4:</strong> Cores e formas geométricas para daltônicos.</li>
+                <li><strong>H5:</strong> Botões destrutivos espaçados (evita clique errado).</li>
+                <li><strong>H9:</strong> Mensagens de erro amigáveis sem termos técnicos.</li>
+            </ul>
+
+            <h3>Slide 9: Conclusão</h3>
+            <ul>
+                <li>Lembre a métrica de Sucesso: botões de 48px e Contraste AAA (Sol forte).</li>
+                <li>Finalize com a frase: <i>"Acessibilidade digital e inclusão arquitetônica andam lado a lado".</i></li>
+                <li>Agradeça a atenção! 👏</li>
+            </ul>
+        </div>
+
+        <div class="text-center mt-8 text-gray-500 text-sm font-bold">
+            Boa Apresentação! 🚀
+        </div>
+
+    </div>
+</body>
+</html>
