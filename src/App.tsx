@@ -35,7 +35,7 @@ function MainApp() {
   };
 
   return (
-    <div className="flex flex-col h-screen w-full max-w-7xl mx-auto md:shadow-2xl relative overflow-hidden bg-background">
+    <div className="flex flex-col h-[100dvh] w-full max-w-7xl mx-auto md:shadow-2xl relative overflow-hidden bg-background">
       <TopBar />
       
       {/* Responsive Content Area */}
