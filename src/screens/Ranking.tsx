@@ -1,4 +1,3 @@
-import React from 'react';
 import { Medal, Trophy, User, ChevronRight } from 'lucide-react';
 
 export function Ranking() {

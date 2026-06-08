@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Camera, ArrowLeft, X, ArrowRight, CheckCircle } from 'lucide-react';
 
 export function Form() {

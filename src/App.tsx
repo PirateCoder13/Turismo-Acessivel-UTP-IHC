@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AccessibilityProvider } from './contexts/AccessibilityContext';
 import { TopBar } from './components/TopBar';
 import { BottomNav } from './components/BottomNav';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Contrast, Type, Ear } from 'lucide-react';
 import { useAccessibility } from '../contexts/AccessibilityContext';
 

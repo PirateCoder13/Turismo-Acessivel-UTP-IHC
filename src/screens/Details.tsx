@@ -1,4 +1,3 @@
-import React from 'react';
 import { Star, Square, Triangle, CheckCircle, AlertCircle, Camera, ChevronRight, MapPinned, Car } from 'lucide-react';
 
 interface DetailsProps {
