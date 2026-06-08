@@ -3,133 +3,423 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Roteiro de Bolso - IHC</title>
+    <title>Guia de Apresentação Mobile</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { 
             background-color: #0A0A0A; 
-            color: #E5E7EB; 
+            color: #FFFFFF; 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            padding-bottom: 60px; 
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
             -webkit-font-smoothing: antialiased;
+            touch-action: pan-y;
         }
+        
+        .slider-container {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            transition: transform 0.3s ease-out;
+        }
+
+        .slide-page {
+            min-width: 100vw;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 20px 20px 80px 20px;
+            box-sizing: border-box;
+        }
+
         .card { 
             background-color: #1A1A1A; 
             border-radius: 16px; 
             padding: 24px; 
-            margin-bottom: 24px; 
-            border-left: 6px solid #FFD700; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            min-height: 100%;
+            border-top: 6px solid #FFD700; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
         }
-        .card-2 { border-left-color: #3B82F6; }
-        .card-3 { border-left-color: #10B981; }
-        .card-4 { border-left-color: #8B5CF6; }
-        .card-5 { border-left-color: #EF4444; }
         
-        h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; text-align: center; color: #FFFFFF; padding-top: 24px;}
-        h2 { font-size: 22px; font-weight: 800; color: #FFFFFF; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;}
-        h3 { font-size: 18px; font-weight: 700; color: #9CA3AF; margin-top: 24px; margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 8px;}
+        h1 { font-size: 26px; font-weight: 900; color: #FFFFFF; margin-bottom: 24px;}
+        h2 { font-size: 20px; font-weight: 800; color: #FFD700; margin-bottom: 16px;}
+        h3 { font-size: 18px; font-weight: 700; color: #FFFFFF; margin-top: 24px; margin-bottom: 8px;}
+        p { font-size: 16px; line-height: 1.6; color: #D1D5DB; margin-bottom: 16px;}
         
-        ul { list-style: none; padding: 0; }
-        li { font-size: 20px; line-height: 1.5; margin-bottom: 16px; position: relative; padding-left: 24px; color: #D1D5DB; }
-        li::before { content: "👉"; position: absolute; left: 0; font-size: 16px; top: 4px; }
+        ul { list-style: none; padding: 0; margin-bottom: 16px;}
+        li { font-size: 16px; line-height: 1.6; margin-bottom: 12px; position: relative; padding-left: 20px; color: #D1D5DB; }
+        li::before { content: "•"; position: absolute; left: 0; font-size: 18px; top: 0px; color: #FFD700; }
         
-        .badge { display: inline-block; padding: 4px 12px; background: #333; border-radius: 20px; font-size: 14px; font-weight: bold; margin-bottom: 24px; text-align: center; width: 100%;}
+        .dots-container {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0 20px;
+            gap: 8px;
+            z-index: 50;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #444;
+            transition: background-color 0.3s;
+        }
+        .dot.active { background-color: #FFD700; }
+        
+        .swipe-hint {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            opacity: 0.5;
+            animation: bounce-horizontal 2s infinite;
+        }
+
+        @keyframes bounce-horizontal {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-10px); }
+        }
     </style>
 </head>
 <body>
-    <div class="max-w-md mx-auto p-5">
-        <h1>📱 Roteiro de Bolso</h1>
-        <div class="badge">Uso exclusivo no celular 📵</div>
 
-        <!-- PESSOA 1 -->
-        <div class="card">
-            <h2>🗣️ Pessoa 1</h2>
-            
-            <h3>Slide 1: Capa</h3>
-            <ul>
-                <li>Cumprimente os professores e a turma.</li>
-                <li>Apresente rapidamente o nome do projeto (Turismo com Acessibilidade) e a proposta da disciplina de IHC.</li>
-            </ul>
-
-            <h3>Slide 2: Introdução</h3>
-            <ul>
-                <li>Explique o problema: portais de turismo não falam sobre estrutura, causando barreiras inesperadas.</li>
-                <li>Apresente a solução: o aplicativo colaborativo focado em catalogar medidas reais.</li>
-            </ul>
+    <div class="slider-container" id="slider">
+        
+        <!-- SLIDE 1 -->
+        <div class="slide-page">
+            <div class="card relative text-center flex items-center justify-center">
+                <div class="swipe-hint">👈</div>
+                <h1 class="text-3xl font-black text-white mb-6">TURISMO COM ACESSIBILIDADE</h1>
+                <h2 class="text-yellow-400 mb-12">APLICATIVO COLABORATIVO E RANKING</h2>
+                
+                <div class="bg-gray-800 p-6 rounded-xl text-left w-full">
+                    <p class="font-bold text-lg text-white mb-2">Projeto de Interface Humano-Computador</p>
+                    <p class="mb-0">2º Bimestre 2026-1</p>
+                    <p class="font-bold mb-6">Universidade Tuiuti do Paraná (UTP)</p>
+                    
+                    <p class="font-bold text-yellow-400 mb-2">Equipe:</p>
+                    <p class="mb-1">Eduarda Horning Bzunek</p>
+                    <p class="mb-1">João Gualberto Boissa Netto</p>
+                    <p class="mb-1">João Vitor da Mota Mattos</p>
+                    <p class="mb-1">José Otávio Chacorowski Raimundo</p>
+                    <p class="mb-0">Yasmin dos Santos Pereira</p>
+                </div>
+            </div>
         </div>
 
-        <!-- PESSOA 2 -->
-        <div class="card card-2">
-            <h2>🗣️ Pessoa 2</h2>
-            
-            <h3>Slide 3: Personas</h3>
-            <ul>
-                <li>Conte a história do Carlos Alberto (cadeirante) e como o app muda a vida dele antes de sair de casa.</li>
-                <li>Passe rápido pelos perfis de IHC (Carlos, Maria, Yuri e Beatriz).</li>
-            </ul>
-
-            <h3>Slide 4: ABNT NBR 9050</h3>
-            <ul>
-                <li>Explique o que se cadastra no app: Portas (mín. 0,80m), Rampas (cálculo de inclinação) e Piso Tátil.</li>
-                <li>Mostre que o app tem base real nas leis brasileiras.</li>
-            </ul>
+        <!-- SLIDE 2 -->
+        <div class="slide-page">
+            <div class="card">
+                <h1>01. Introdução e Justificativa Social</h1>
+                
+                <h3 class="text-red-400">O Problema</h3>
+                <p>Portais de turismo comuns falham ao omitir dados técnicos arquitetônicos estruturais essenciais.</p>
+                <p>Como consequência, pessoas com deficiência (PCD) enfrentam barreiras físicas inesperadas e situações de profundo constrangimento ao tentarem viajar ou visitar pontos turísticos.</p>
+                
+                <h3 class="text-green-400 mt-6">A Solução</h3>
+                <p>O Aplicativo colaborativo <strong>"Turismo Acessível UTP"</strong>.</p>
+                <p>Um sistema onde os próprios usuários (cidadãos) catalogam parâmetros exatos de acessibilidade (largura de portas, inclinação de rampas, presença de pisos táteis).</p>
+                <p>Esses dados geram um <strong>ranking confiável</strong> com base em algoritmos de pontuação estruturados.</p>
+            </div>
         </div>
 
-        <!-- PESSOA 3 -->
-        <div class="card card-3">
-            <h2>🗣️ Pessoa 3</h2>
-            
-            <h3>Slide 5: Algoritmo e Selos</h3>
-            <ul>
-                <li>Mostre a matriz matemática: como os pesos (Rampa 30%, Sanitários 20%) geram a nota final.</li>
-                <li>Apresente a gamificação das medalhas (Platina, Ouro, Prata, Bronze).</li>
-            </ul>
-
-            <h3>Slide 6: Fluxos de Tarefa</h3>
-            <ul>
-                <li>Fale sobre o "Happy Path" (Caminho Feliz) de avaliar um lugar.</li>
-                <li>Cite os erros previstos em IHC: salvamento offline e o bloqueio se alguém digitar uma porta de 10 metros.</li>
-            </ul>
+        <!-- SLIDE 3 -->
+        <div class="slide-page">
+            <div class="card">
+                <h1>02. Storytelling & Personas</h1>
+                
+                <h3>O Cenário Base</h3>
+                <p><strong>Carlos Alberto (cadeirante, 34 anos)</strong> planeja visitar a Ópera de Arame. Nosso aplicativo evita surpresas desagradáveis permitindo que ele verifique dimensões exatas de portas e a inclinação das passarelas antes mesmo de sair de casa.</p>
+                
+                <h3 class="mt-6">Grupo de Personas Atendidas</h3>
+                <div class="space-y-4">
+                    <div class="bg-gray-800 p-4 rounded-lg flex items-center gap-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center font-bold text-lg">CA</div>
+                        <div>
+                            <p class="font-bold text-white mb-0">Carlos Alberto</p>
+                            <p class="text-sm mb-0">Deficiência Motora</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg flex items-center gap-4">
+                        <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center font-bold text-lg">ML</div>
+                        <div>
+                            <p class="font-bold text-white mb-0">Maria da Luz</p>
+                            <p class="text-sm mb-0">Baixa Visão / Idosa</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg flex items-center gap-4">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center font-bold text-lg">YG</div>
+                        <div>
+                            <p class="font-bold text-white mb-0">Yuri Gabriel</p>
+                            <p class="text-sm mb-0">Surdo</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg flex items-center gap-4">
+                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center font-bold text-lg">BH</div>
+                        <div>
+                            <p class="font-bold text-white mb-0">Beatriz Helena</p>
+                            <p class="text-sm mb-0">Cega</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- PESSOA 4 -->
-        <div class="card card-4">
-            <h2>🗣️ Pessoa 4</h2>
-            
-            <h3>Slide 7: Telas e Design</h3>
-            <ul>
-                <li>Foque nas Telas!</li>
-                <li><strong>Tela 1:</strong> Mapa e alvos de toque grandes.</li>
-                <li><strong>Tela 2:</strong> Ficha do local com checklists físicos (aprovado/pendente).</li>
-                <li><strong>Tela 3:</strong> O formulário passo a passo de avaliação.</li>
-            </ul>
+        <!-- SLIDE 4 -->
+        <div class="slide-page">
+            <div class="card">
+                <h1>03. Fundamentação Técnica (ABNT NBR 9050)</h1>
+                <p class="text-yellow-400 font-bold mb-6">Parâmetros Físicos Cadastrados no Aplicativo:</p>
+                
+                <h3>Portas</h3>
+                <p>Vão livre útil mínimo de <strong>0,80 m</strong>, abertura de 90° e soleiras niveladas (desnível máximo tolerado de 5 mm).</p>
+                
+                <h3 class="mt-4">Rampas</h3>
+                <p>Dimensionamento de inclinação baseado na fórmula física <strong>i = (h * 100) / c</strong>. Limite máximo restrito de inclinação de <strong>8,33%</strong> para garantia de segurança total contra capotamento de cadeiras de rodas.</p>
+                
+                <h3 class="mt-4">Sinalização Tátil de Piso</h3>
+                <p><strong>Piso de Alerta</strong> (troncos de cone indicando perigo e obstáculos) e <strong>Piso Direcional</strong> (linhas paralelas contínuas para guiar o caminhamento seguro).</p>
+            </div>
         </div>
 
-        <!-- PESSOA 5 -->
-        <div class="card card-5">
-            <h2>🗣️ Pessoa 5</h2>
-            
-            <h3>Slide 8: Avaliação Heurística</h3>
-            <ul>
-                <li>Explique as Heurísticas de forma simples aplicadas pra "uso na rua".</li>
-                <li><strong>H4:</strong> Cores e formas geométricas para daltônicos.</li>
-                <li><strong>H5:</strong> Botões destrutivos espaçados (evita clique errado).</li>
-                <li><strong>H9:</strong> Mensagens de erro amigáveis sem termos técnicos.</li>
-            </ul>
-
-            <h3>Slide 9: Conclusão</h3>
-            <ul>
-                <li>Lembre a métrica de Sucesso: botões de 48px e Contraste AAA (Sol forte).</li>
-                <li>Finalize com a frase: <i>"Acessibilidade digital e inclusão arquitetônica andam lado a lado".</i></li>
-                <li>Agradeça a atenção! 👏</li>
-            </ul>
+        <!-- SLIDE 5 -->
+        <div class="slide-page">
+            <div class="card">
+                <h1>04. Algoritmo de Pontuação e Selos</h1>
+                
+                <h3>Matriz de Ponderação</h3>
+                <p>O algoritmo do aplicativo não soma notas simples; ele utiliza pesos de impacto de segurança:</p>
+                <div class="bg-gray-800 p-4 rounded-lg font-bold mb-6 space-y-2">
+                    <div class="flex justify-between border-b border-gray-600 pb-2"><span>Rampas / Acessos</span> <span class="text-yellow-400">30%</span></div>
+                    <div class="flex justify-between border-b border-gray-600 pb-2"><span>Portas e Vãos</span> <span class="text-yellow-400">25%</span></div>
+                    <div class="flex justify-between border-b border-gray-600 pb-2"><span>Sanitários Adaptados</span> <span class="text-yellow-400">20%</span></div>
+                    <div class="flex justify-between border-b border-gray-600 pb-2"><span>Sinalização Tátil</span> <span class="text-yellow-400">15%</span></div>
+                    <div class="flex justify-between"><span>Comunicação Alternativa</span> <span class="text-yellow-400">10%</span></div>
+                </div>
+                
+                <h3>Selos de Qualidade</h3>
+                <div class="space-y-3 font-bold">
+                    <div class="bg-gray-800 p-3 rounded-lg border-l-4 border-blue-400">💎 Selo Platina <span class="text-gray-400 font-normal text-sm ml-2">(90 a 100 pontos)</span></div>
+                    <div class="bg-gray-800 p-3 rounded-lg border-l-4 border-yellow-500">🥇 Selo Ouro <span class="text-gray-400 font-normal text-sm ml-2">(75 a 89 pontos)</span></div>
+                    <div class="bg-gray-800 p-3 rounded-lg border-l-4 border-gray-400">🥈 Selo Prata <span class="text-gray-400 font-normal text-sm ml-2">(50 a 74 pontos)</span></div>
+                    <div class="bg-gray-800 p-3 rounded-lg border-l-4 border-yellow-700">🥉 Selo Bronze <span class="text-gray-400 font-normal text-sm ml-2">(30 a 49 pontos)</span></div>
+                    <div class="bg-gray-800 p-3 rounded-lg border-l-4 border-gray-600">❓ Selo Cinza <span class="text-gray-400 font-normal text-sm ml-2">(Local ainda não avaliado)</span></div>
+                </div>
+            </div>
         </div>
 
-        <div class="text-center mt-8 text-gray-500 text-sm font-bold">
-            Boa Apresentação! 🚀
+        <!-- SLIDE 6 -->
+        <div class="slide-page">
+            <div class="card">
+                <h1>05. Fluxos de Tarefa & InfoArq</h1>
+                
+                <h3>Caminho Básico (Happy Path)</h3>
+                <div class="bg-gray-800 p-4 rounded-lg font-bold mb-6 space-y-2 text-lg">
+                    <div>1. Pesquisar Local</div>
+                    <div>2. Selecionar Ponto</div>
+                    <div>3. Clicar "Avaliar"</div>
+                    <div>4. Inserir Medidas</div>
+                    <div>5. Anexar Evidência</div>
+                    <div>6. Enviar Ranking</div>
+                </div>
+                
+                <h3>Caminhos de Exceção Previstos em IHC</h3>
+                <div class="mb-6">
+                    <h4 class="text-yellow-400 font-bold mb-2">Queda de Conexão (Offline)</h4>
+                    <p>Salvamento automático em cache SQLite local do dispositivo. O formulário é sincronizado na próxima vez que a internet for detectada, preservando o trabalho do colaborador de campo.</p>
+                </div>
+                <div>
+                    <h4 class="text-red-400 font-bold mb-2">Erros de Digitação Críticos</h4>
+                    <p>Bloqueio preventivo e orientação amigável caso o usuário insira dimensões físicas absurdas (ex: porta com 10 metros de largura), evitando que dados falsos poluam o ranking da comunidade.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7 -->
+        <div class="slide-page">
+            <div class="card">
+                <h1>06. Design de Interface Aplicado</h1>
+                
+                <div class="bg-gray-800 p-4 rounded-xl mb-4 border border-gray-600">
+                    <h4 class="text-yellow-400 font-bold text-center mb-4">Tela 1: Mapa & Filtros</h4>
+                    <p class="text-center font-bold text-gray-400 mb-4">[ Mapa Interativo ]</p>
+                    <p class="text-center font-bold text-white mb-4">♿ Cadeirante | 👁️ Visão</p>
+                    <p class="text-sm text-center mb-0">Alvos de toque amplos (Mínimo de 48px de área ativa de clique).</p>
+                </div>
+                
+                <div class="bg-gray-800 p-4 rounded-xl mb-4 border border-gray-600">
+                    <h4 class="text-yellow-400 font-bold text-center mb-4">Tela 2: Detalhes do Local</h4>
+                    <p class="font-bold text-white text-center text-xl mb-2">Parque Barigui</p>
+                    <p class="text-center text-yellow-600 font-bold mb-4">Selo Bronze</p>
+                    <p class="text-sm font-bold mb-1">✔️ Vagas PCD Próximas</p>
+                    <p class="text-sm font-bold mb-4">❌ Manutenção Barras Apoio</p>
+                    <p class="text-sm text-center mb-0">Exibição clara de checklists físicos (aprovados vs pendentes).</p>
+                </div>
+                
+                <div class="bg-gray-800 p-4 rounded-xl border border-gray-600">
+                    <h4 class="text-yellow-400 font-bold text-center mb-4">Tela 3: Formulário</h4>
+                    <p class="text-center font-bold text-white mb-2">Passo 1 de 4</p>
+                    <p class="text-center font-bold text-white mb-2">Portas e Acessos</p>
+                    <p class="text-center bg-gray-600 rounded p-2 mb-2 text-white">[Medida (m)]</p>
+                    <p class="text-center text-green-400 font-bold mb-4">Próximo Passo ➔</p>
+                    <p class="text-sm text-center mb-0">Formulário progressivo e instrucional passo a passo.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8 -->
+        <div class="slide-page">
+            <div class="card">
+                <h1>07. Avaliação Heurística (Jakob Nielsen)</h1>
+                <p>As 10 heurísticas clássicas de Nielsen foram cuidadosamente adaptadas e analisadas para o contexto de <strong>uso móvel em movimento</strong> nas calçadas urbanas.</p>
+                
+                <h3 class="border-b border-gray-600 pb-2 mb-6">Heurísticas Cruciais Aplicadas:</h3>
+                
+                <div class="space-y-6 mt-4">
+                    <div>
+                        <h4 class="text-yellow-400 font-bold text-lg mb-2">H4: Consistência e Padrões</h4>
+                        <p>Marcadores de mapa não utilizam apenas cores (verde, amarelo, vermelho), mas sim <strong>formas geométricas redundantes</strong> (Estrela, Quadrado, Triângulo) para dar suporte efetivo a usuários daltônicos.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-yellow-400 font-bold text-lg mb-2">H5: Prevenção de Erros</h4>
+                        <p>Implementamos um espaçamento rígido de <strong>24px</strong> entre botões primários e botões destrutivos (Cancelar/Apagar) para evitar cliques acidentais durantes trepidações na cadeira de rodas ou transporte coletivo.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-yellow-400 font-bold text-lg mb-2">H9: Ajuda para Reconhecimento e Recuperação de Erros</h4>
+                        <p>Mensagens de erro são construtivas, amigáveis e explicam como resolver o problema sem utilizar termos puramente técnicos de código ou mensagens assustadoras.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9 -->
+        <div class="slide-page">
+            <div class="card">
+                <h1>08. Recomendações e Conclusões</h1>
+                
+                <h3>Diretrizes de Sucesso IHC (WCAG 2.2)</h3>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-start gap-3">
+                        <span class="text-green-400 font-bold">✓</span>
+                        <span class="ml-2">Implementação estrita de alvos de toque mínimos de <strong>48x48dp</strong> para mobilidade reduzida.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-green-400 font-bold">✓</span>
+                        <span class="ml-2">Contraste dinâmico nível <strong>AAA (razão mínima 7:1)</strong>, garantindo total legibilidade das telas mesmo operando o celular sob sol forte na rua.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-green-400 font-bold">✓</span>
+                        <span class="ml-2">Navegação compatível com leitores de tela sem loops infinitos (Foco lógico).</span>
+                    </li>
+                </ul>
+                
+                <div class="bg-gray-800 p-6 rounded-xl border-l-4 border-yellow-400 mt-6 mb-8 text-center shadow-xl">
+                    <h4 class="text-yellow-400 font-bold text-xl mb-4">Conclusão</h4>
+                    <p class="italic text-lg mb-0 text-white">O projeto <strong>"Turismo Acessível UTP"</strong> prova tecnicamente que a acessibilidade digital e a inclusão arquitetônica física urbana não são mundos separados, mas sim dimensões que devem andar lado a lado para garantir cidadania completa.</p>
+                </div>
+                
+                <h1 class="text-4xl text-center mb-2 mt-auto">OBRIGADO!</h1>
+                <p class="text-center text-gray-500 font-bold">Turismo Acessível UTP - 2026</p>
+            </div>
         </div>
 
     </div>
+
+    <!-- Paginador -->
+    <div class="dots-container" id="dots-container">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const dots = document.querySelectorAll('.dot');
+        const slidesCount = 9;
+        let currentIndex = 0;
+
+        let startX = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let isDragging = false;
+
+        function updateSliderPosition() {
+            slider.style.transform = `translateX(${currentTranslate}px)`;
+        }
+
+        function setPositionByIndex() {
+            currentTranslate = currentIndex * -window.innerWidth;
+            prevTranslate = currentTranslate;
+            slider.style.transform = `translateX(${currentTranslate}px)`;
+            
+            dots.forEach((dot, index) => {
+                if(index === currentIndex) dot.classList.add('active');
+                else dot.classList.remove('active');
+            });
+        }
+
+        slider.addEventListener('touchstart', touchStart);
+        slider.addEventListener('touchmove', touchMove);
+        slider.addEventListener('touchend', touchEnd);
+
+        slider.addEventListener('mousedown', touchStart);
+        slider.addEventListener('mousemove', touchMove);
+        slider.addEventListener('mouseup', touchEnd);
+        slider.addEventListener('mouseleave', () => { if(isDragging) touchEnd() });
+
+        function getPositionX(event) {
+            return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+        }
+
+        function touchStart(event) {
+            isDragging = true;
+            startX = getPositionX(event);
+            slider.style.transition = 'none'; 
+        }
+
+        function touchMove(event) {
+            if (isDragging) {
+                const currentPosition = getPositionX(event);
+                const diff = currentPosition - startX;
+                
+                if (Math.abs(diff) > 15) { 
+                    currentTranslate = prevTranslate + diff;
+                    updateSliderPosition();
+                }
+            }
+        }
+
+        function touchEnd() {
+            isDragging = false;
+            slider.style.transition = 'transform 0.3s ease-out';
+            
+            const movedBy = currentTranslate - prevTranslate;
+
+            if (movedBy < -80 && currentIndex < slidesCount - 1) {
+                currentIndex += 1;
+            } else if (movedBy > 80 && currentIndex > 0) {
+                currentIndex -= 1;
+            }
+
+            setPositionByIndex();
+        }
+
+        window.addEventListener('resize', setPositionByIndex);
+    </script>
 </body>
 </html>
