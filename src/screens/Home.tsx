@@ -38,6 +38,7 @@ export function Home({ onNavigate }: HomeProps) {
     { id: 2, pos: [-25.4429, -49.2378], type: 'Ouro', name: 'Jardim Botânico', icon: <Square fill="currentColor" size={20} />, color: 'text-ouro' },
     { id: 3, pos: [-25.3838, -49.2762], type: 'Prata', name: 'Ópera de Arame', icon: <Square fill="currentColor" size={20} />, color: 'text-prata' },
     { id: 4, pos: [-25.4266, -49.3082], type: 'Bronze', name: 'Parque Barigui', icon: <Triangle fill="currentColor" size={20} />, color: 'text-bronze' },
+    { id: 5, pos: [-25.4255, -49.3175], type: 'Platina', name: 'Universidade Tuiuti do Paraná (UTP)', icon: <Star fill="currentColor" size={20} />, color: 'text-platina' },
   ];
 
   return (

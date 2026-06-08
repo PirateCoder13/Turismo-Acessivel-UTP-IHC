@@ -65,6 +65,21 @@ const placesData: Record<number, any> = {
       { id: 3, title: 'Sinalização', desc: 'Inexistência de piso tátil nos quiosques', status: 'Pendente', success: false },
       { id: 4, title: 'Estacionamento', desc: 'Vagas demarcadas próximas às entradas', status: 'Aprovado', success: true },
     ]
+  },
+  5: {
+    name: 'Universidade Tuiuti do Paraná (UTP)',
+    points: 95,
+    type: 'Platina',
+    color: 'text-platina',
+    bg: 'bg-platina/10',
+    border: 'border-platina',
+    Icon: Star,
+    specs: [
+      { id: 1, title: 'Rampas de acesso aos blocos', desc: 'Rampas com inclinação correta e piso tátil conectando todos os blocos principais', status: 'Aprovado', success: true },
+      { id: 2, title: 'Banheiros adaptados', desc: 'Amplos, com barras corretas, presentes em todos os andares', status: 'Aprovado', success: true },
+      { id: 3, title: 'Piso tátil direcional nos corredores', desc: 'Sinalização completa desde a portaria até as salas de aula', status: 'Aprovado', success: true },
+      { id: 4, title: 'Elevadores', desc: 'Em funcionamento regular, dimensionados para PCD e com sinalização sonora', status: 'Aprovado', success: true },
+    ]
   }
 };
 

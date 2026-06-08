@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AccessibilityProvider } from './contexts/AccessibilityContext';
 import { TopBar } from './components/TopBar';
 import { BottomNav } from './components/BottomNav';
@@ -14,6 +14,18 @@ type Tab = 'home' | 'details' | 'form' | 'ranking';
 function MainApp() {
   const [currentTab, setCurrentTab] = useState<Tab>('home');
   const [selectedPlaceId, setSelectedPlaceId] = useState<number>(1);
+  const [globalScore, setGlobalScore] = useState(0);
+
+  useEffect(() => {
+    // API gratuita para contar acessos no site (hit soma 1)
+    fetch('https://countapi.mileshilliard.com/api/v1/hit/turismo-utp-ihc-global-points')
+      .then(res => res.json())
+      .then(data => {
+        // Cada visita nova soma 10 pontos
+        setGlobalScore(data.value * 10);
+      })
+      .catch(err => console.error('Falha ao atualizar contador:', err));
+  }, []);
 
   const handleNavigate = (tab: Tab, placeId?: number) => {
     setCurrentTab(tab);
@@ -34,7 +46,7 @@ function MainApp() {
           {currentTab === 'home' && <Home onNavigate={handleNavigate} />}
           {currentTab === 'details' && <Details placeId={selectedPlaceId} onNavigate={handleNavigate} />}
           {currentTab === 'form' && <Form />}
-          {currentTab === 'ranking' && <Ranking />}
+          {currentTab === 'ranking' && <Ranking globalScore={globalScore} />}
         </main>
       </div>
     </div>

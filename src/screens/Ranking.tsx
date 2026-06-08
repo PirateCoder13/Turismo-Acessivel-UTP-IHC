@@ -1,6 +1,32 @@
-import { Medal, Trophy, User, ChevronRight } from 'lucide-react';
+import { Medal, Trophy, User, ChevronRight, Award } from 'lucide-react';
 
-export function Ranking() {
+interface RankingProps {
+  globalScore?: number;
+}
+
+export function Ranking({ globalScore = 0 }: RankingProps) {
+  let seal = 'Nenhum';
+  let sealColor = 'text-slate-400';
+  let Icon = Award;
+
+  if (globalScore >= 1000) {
+    seal = 'Platina';
+    sealColor = 'text-blue-400';
+    Icon = Trophy;
+  } else if (globalScore >= 100) {
+    seal = 'Ouro';
+    sealColor = 'text-amber-500';
+    Icon = Trophy;
+  } else if (globalScore >= 50) {
+    seal = 'Prata';
+    sealColor = 'text-slate-400';
+    Icon = Medal;
+  } else if (globalScore > 0) {
+    seal = 'Bronze';
+    sealColor = 'text-amber-700';
+    Icon = Medal;
+  }
+
   const ranking = [
     { id: 1, name: 'Museu de Arte de Curitiba', points: 98, type: 'Platina' },
     { id: 2, name: 'Parque Barigui (Pista Central)', points: 92, type: 'Platina' },
@@ -27,11 +53,11 @@ export function Ranking() {
         <div className="bg-white rounded-xl p-4 text-text flex items-center justify-between shadow-inner">
           <div>
             <p className="text-sm text-text-light font-bold uppercase tracking-wider">Pontuação</p>
-            <p className="text-3xl font-black text-primary">1.250 <span className="text-lg font-normal text-text-light">pts</span></p>
+            <p className="text-3xl font-black text-primary">{globalScore} <span className="text-lg font-normal text-text-light">pts</span></p>
           </div>
           <div className="text-center">
-            <Medal size={40} className="text-ouro mx-auto mb-1" aria-hidden="true" />
-            <span className="text-xs font-bold text-ouro">Selo Ouro</span>
+            <Icon size={40} className={`${sealColor} mx-auto mb-1`} aria-hidden="true" />
+            <span className={`text-xs font-bold ${sealColor}`}>Selo {seal}</span>
           </div>
         </div>
       </div>
