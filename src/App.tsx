@@ -8,7 +8,6 @@ import { Home } from './screens/Home';
 import { Details } from './screens/Details';
 import { Form } from './screens/Form';
 import { Ranking } from './screens/Ranking';
-import AccessibilityPanel from './components/AccessibilityPanel';
 
 type Tab = 'home' | 'details' | 'form' | 'ranking';
 
