@@ -1,0 +1,50 @@
+📱 *ROTEIRO DE APRESENTAÇÃO - TURISMO ACESSÍVEL UTP* 📱
+(Divisão de falas para os 9 slides - 5 Integrantes)
+
+---
+
+🗣️ *PESSOA 1 - Abertura e O Problema*
+🔹 *Slide 1: Capa*
+- Cumprimenta os professores e a turma.
+- Apresenta rapidamente o nome do projeto ("Turismo com Acessibilidade: Aplicativo Colaborativo e Ranking") e a proposta da disciplina de IHC.
+🔹 *Slide 2: Introdução e Justificativa Social*
+- Explica o problema atual (portais de turismo não falam sobre estrutura).
+- Apresenta a nossa solução (o app focado em catalogar medidas reais de acessibilidade de forma colaborativa).
+
+---
+
+🗣️ *PESSOA 2 - O Público e as Regras Técnicas*
+🔹 *Slide 3: Storytelling & Personas*
+- Conta a historinha do Carlos Alberto (cadeirante) e como o app muda a vida dele antes de sair de casa.
+- Passa rapidamente pelo nosso grupo de personas de IHC (Carlos, Maria, Yuri e Beatriz).
+🔹 *Slide 4: Fundamentação Técnica (ABNT NBR 9050)*
+- Explica o que exatamente o usuário cadastra no app: Portas (mínimo 0,80m), Rampas (cálculo de inclinação máxima) e Sinalização Tátil. Mostra que o app tem base real nas leis.
+
+---
+
+🗣️ *PESSOA 3 - O Coração do App e os Fluxos*
+🔹 *Slide 5: Algoritmo de Pontuação e Selos*
+- Mostra a matriz matemática do app: como pesos diferentes (Rampa = 30%, Sanitários = 20%) geram uma nota final.
+- Apresenta as medalhas de gamificação (Platina, Ouro, Prata, Bronze).
+🔹 *Slide 6: Fluxos de Tarefa & InfoArq*
+- Conta como é o "Caminho Feliz" (Happy Path) de quem usa o app para avaliar um lugar.
+- Conta o que acontece nos erros de IHC (ex: salvamento offline se a internet cair, ou bloqueio se alguém digitar uma porta com 10 metros).
+
+---
+
+🗣️ *PESSOA 4 - O Visual e o Protótipo*
+🔹 *Slide 7: Design de Interface Aplicado (Telas)*
+- Este integrante fica focado nas telas!
+- Mostra a Tela 1 (mapa e alvos de toque grandes).
+- Mostra a Tela 2 (a ficha do local com o que está aprovado ou não).
+- Mostra a Tela 3 (o formulário passo a passo).
+
+---
+
+🗣️ *PESSOA 5 - Avaliação Final e Encerramento*
+🔹 *Slide 8: Avaliação Heurística (Nielsen)*
+- Explica de forma fácil as heurísticas que aplicamos de IHC para uso na rua (H4: cores e formas para daltônicos; H5: botões espaçados para não clicar errado; H9: mensagens de erro amigáveis).
+- Explica o tamanho dos botões (mínimo 48px) e o Contraste da tela pro sol forte (WCAG AAA).
+🔹 *Slide 9: Conclusão*
+- Finaliza com a frase forte: "acessibilidade digital e inclusão arquitetônica andam lado a lado".
+- Agradece a atenção de todos. 👏
