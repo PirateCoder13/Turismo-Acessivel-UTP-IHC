@@ -50,7 +50,6 @@ function MainApp() {
           {currentTab === 'ranking' && <Ranking globalScore={globalScore} />}
         </main>
       </div>
-      <AccessibilityPanel />
     </div>
   );
 }

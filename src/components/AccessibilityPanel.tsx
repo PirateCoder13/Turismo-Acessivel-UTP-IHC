@@ -14,13 +14,14 @@ export default function AccessibilityPanel() {
 
   return (
     <>
-      {/* Floating Button */}
+      {/* TopBar Button */}
       <button 
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 bg-blue-600 text-white p-4 rounded-full shadow-2xl hover:bg-blue-700 transition-transform hover:scale-110 flex items-center justify-center"
+        className="flex items-center gap-2 px-3 py-2 bg-black/10 rounded-lg hover:bg-black/20 focus-visible:bg-black/20 transition-colors font-semibold"
         aria-label="Abrir Painel de Acessibilidade"
       >
-        <Accessibility size={32} />
+        <Accessibility size={20} />
+        <span className="hidden sm:inline">Acessibilidade</span>
       </button>
 
       {/* Modal / Panel */}
