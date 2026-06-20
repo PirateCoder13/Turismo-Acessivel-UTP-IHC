@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Accessibility, Volume2, Type, Eye, ZoomIn, Contrast } from 'lucide-react';
 import { useAccessibility } from '../contexts/AccessibilityContext';
 
@@ -25,8 +26,8 @@ export default function AccessibilityPanel() {
       </button>
 
       {/* Modal / Panel */}
-      {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+      {isOpen && createPortal(
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 p-4">
           <div className="bg-white dark:bg-gray-900 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-200">
             <div className="bg-blue-600 p-4 flex justify-between items-center text-white">
               <h2 className="text-xl font-black flex items-center gap-2">
@@ -164,7 +165,7 @@ export default function AccessibilityPanel() {
 
             </div>
           </div>
-        </div>
+        </div>, document.body
       )}
     </>
   );
